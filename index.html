@@ -21,7 +21,7 @@
 
 </head>
 <body>
-<section class="o-row o-row--lg o-row--body">
+<section class="o-row o-row--lg o-row--body o-row--login">
     <div class="o-container u-max-width-xs">
         <h1 class="c-logo">
             <svg viewBox="0 0 119 24" xmlns="http://www.w3.org/2000/svg" class="c-logo__symbol">
@@ -41,12 +41,13 @@
             </div>
             <div class="c-card__body">
                 <p class="c-form-field">
-                    <label for="username">
+                    <label for="username" class="c-label">
                         Username or email address
                     </label>
-                    <input class="c-input" type="email" name="username" id="username" placeholder="e.g. john@doe.com" required>
+                    <input class="c-input" type="email" name="username" id="username" placeholder="e.g. john@doe.com"
+                           required>
                 </p>
-                <p class="c-form-field">
+                <p class="c-form-field" class="c-label">
                     <label for="password">
                         Password
                     </label>
@@ -54,21 +55,21 @@
                 </p>
                 <p class="c-form-field c-form-field--option">
                     <input type="checkbox" name="rememberme" id="rememberme">
-                    <label for="rememberme">
+                    <label for="rememberme" class="c-label c-label--option">
                         Remember me
                     </label>
                 </p>
-                <p>
-                    <input type="submit" value="Sign in"/input>
+                <p class="u-mb-clear u-mb-md">
+                    <input class="o-button-reset c-button" type="submit" value="Sign in"/>
                 </p>
-                <p>
-                    <a href="#!">
+                <p class="u-align-center u-align-text-center u-mb-xl">
+                    <a href="#!" class="u-align-center u-align-text-center u-text-sm">
                         Forgot password?
                     </a>
                 </p>
             </div>
             <div class="c-card__footer">
-                <p>
+                <p class="u-text-sm u-color-neutral-base">
                     Don't have an account? <a href="#">Create an account</a>
                 </p>
             </div>

@@ -7,6 +7,25 @@
 \*------------------------------------*/
 
 :root {
+    --global-color-blue-xx-light: #4F95FF;
+    --global-color-blue-x-light: #3385FF;
+    --global-color-blue: #2E77E6;
+    --global-color-blue-x-dark: #186deb;;
+    --global-color-blue-xx-dark: #20223a;
+
+
+
+    --global-color-neutral-xxxx-light: #ffffff;
+    --global-color-neutral-xxx-light: #F5F6FA;
+    --global-color-neutral-xx-light: #e2e3e7;
+    --global-color-neutral-x-light: #e6e7eb;
+    --global-color-neutral-light: #LightGrey;
+    --global-color-neutral: #grey;
+
+    --global-color-neutral-x-dark: #999;
+    --global-color-neutral-xx-dark: #606274;
+
+    --global-color-neutral-xxxx-dark: black;
 
 }
 
@@ -26,11 +45,11 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: Inter, sans-serif;
-    color: #20223a;
+    color: var(--global-color-blue-xx-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F5F6FA;
+    background-color: var(--global-color-neutral-xxx-light);
 }
 
 *,
@@ -48,13 +67,13 @@ html {
 
 ::-moz-selection {
     background: HotPink;
-    color: white;
+    color: var(--global-color-neutral-xxxx-light);
     text-shadow: none;
 }
 
 ::selection {
-    background: #3385FF;
-    color: white;
+    background: var(--global-color-blue-x-light);
+    color: var(--global-color-neutral-xxxx-light);
     text-shadow: none;
 }
 
@@ -158,18 +177,21 @@ hr {
 }
 
 a {
-    color: #3385FF;
+    color: var(--global-color-blue-x-light);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: blue;
+    color: var(--global-color-blue-x-light);
 }
 
-a:hover,
+a:hover {
+    color: var(--global-color-blue-xx-light);
+}
+
 a:focus {
-    color: darkblue;
+    color: var(--global-color-blue);
 }
 
 /*
@@ -202,6 +224,9 @@ label {
 
 .o-row--login {
     /* stuff here to align the card */
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* size modifiers */
@@ -452,7 +477,7 @@ label {
 }
 
 .c-logo__inner-circle {
-    fill: #3385FF;
+    fill: var(--global-color-blue-x-light);
 }
 
 
@@ -461,7 +486,7 @@ label {
 }
 
 .c-logo__text {
-    fill: #20223A;
+    fill: var(--global-color-blue-xx-dark);
 }
 
 .c-logo__symbol {
@@ -475,6 +500,50 @@ label {
     ---
     Card with box shadow
 */
+
+
+.c-card {
+    background-color: var(--global-color-neutral-xxxx-light);
+    border-radius: 3px;
+    border: 1px solid var(--global-color-neutral-x-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+}
+
+.c-card__header {
+    padding: 24px 24px 0px;
+}
+
+
+.c-card__body {
+    padding: 0 24px;
+}
+
+.c-card__footer {
+    border-top: 1px solid var(--global-color-neutral-xx-light);
+    padding: 24px 24px 0;
+}
+
+.c-card__title {
+    text-align: center;
+}
+
+@media screen and (min-width: 500px) {
+    .c-card__body {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+    .c-card__header {
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+
+    .c-card__footer {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
 
 /*
     Component: Forms
@@ -492,15 +561,6 @@ label {
 }
 
 
-.c-input{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    border-radius: 3px;
-    font: inherit;
-}
-
 /*
     Component: Input
     ---
@@ -508,10 +568,29 @@ label {
 */
 
 .c-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    font-family: inherit;
+    color: var(--global-color-blue-xx-dark);
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 18px;
+
+    width: 100%;
+    border: 1px solid var(--global-color-neutral-xx-light);
+    border-radius: 3px;
+
+    outline: none;
 
 }
 
 .c-input:focus {
+    border-color: var(--global-color-blue-x-light);
+    bbox-shadow: h-offset v-offset blur spread color;
+    box-shadow: 0 0 0 3px var(--global-color-blue-x-light) 4 d;
+
 }
 
 /*
@@ -521,7 +600,16 @@ label {
 */
 
 .c-label {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: var(--global-color-neutral-xx-dark);
 
+}
+
+.c-label--option {
+    margin-bottom: 0;
+    margin-left: 8px;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
@@ -537,19 +625,30 @@ label {
 */
 
 .c-button {
+    background-color: var(--global-color-blue-x-light);
+    border-radius: 3px;
+    border: 1px solid var(--global-color-blue-xx-light);
+    color: var(--global-color-neutral-xxxx-light);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 12px 12px;
 
+    width: 100%;
 }
 
 .c-button:hover {
-
+    background-color: var(--global-color-blue-x-dark);
 }
 
 .c-button:focus {
+    background-color: var(--global-color-blue-x-light);
+    box-shadow: 0 0 4px 2px var(--global-color-blue-x-light) FD;
 
 }
 
 .c-button:active {
-
+    background-color: var(--global-color-blue-xx-light);
 }
 
 .c-button--block {
@@ -567,11 +666,11 @@ label {
 */
 
 .u-color-neutral-base {
-    color: Silver;
+    color: LightGrey;
 }
 
 .u-color-neutral-dark {
-    color: Black;
+    color: var(--global-color-neutral-xxxx-dark);
 }
 
 /*
@@ -942,7 +1041,7 @@ No media query since this is the default in mobile first design
     *:after {
         background: transparent !important;
         color: #000 !important;
-        /* Black prints faster:
+        /* var(--global-color-neutral-xxxx-dark) prints faster:
         http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
@@ -976,7 +1075,7 @@ No media query since this is the default in mobile first design
 
     pre,
     blockquote {
-        border: 1px solid #999;
+        border: 1px solid var(--global-color-neutral-x-dark);
         page-break-inside: avoid;
     }
 
